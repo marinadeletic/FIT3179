@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Earthquakes of magnitude 4 or large between 4 Oct 2020 and 10 Oct 2020",
+  "projection": {"type": "albersUsa"},
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://marinadeletic.github.io/FIT3179/manhattan.json", "format": {"type": "topojson", "feature": "manhattan"}
+      },
+      "mark": {"type": "geoshape", "fill":"white", "stroke": "grey"}
+
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv"
+      },
+      "encoding": {
+        "longitude": {"field": "start.station.longitude", "type": "quantitative"},
+        "latitude": {"field": "start.station.latitude", "type": "quantitative"}
+      },
+      "layer": [
+        {
+          "mark": {"type": "circle"},
+          "encoding": {
+            "size": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {"domain": [0, 7000]}
+            },
+            "color": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {"scheme": "reds"}
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
