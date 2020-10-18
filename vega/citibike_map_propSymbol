@@ -2,28 +2,28 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800,
   "height": 600,
-  "title": "Earthquakes of magnitude 4 or large between 4 Oct 2020 and 10 Oct 2020",
+  "title": "Citibike Station Uses - June 2019",
   "projection": {"type": "albersUsa"},
 
   "layer": [
     {
       "data": {
-        "url": "https://marinadeletic.github.io/FIT3179/manhattan.json", "format": {"type": "topojson", "feature": "manhattan"}
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/manhattan_cut.json", "format": {"type": "topojson", "feature": "manhattan"}
       },
       "mark": {"type": "geoshape", "fill":"white", "stroke": "grey"}
 
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv"
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv", "format": {"type": "csv"}
       },
       "encoding": {
-        "longitude": {"field": "start.station.longitude", "type": "quantitative"},
-        "latitude": {"field": "start.station.latitude", "type": "quantitative"}
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"}
       },
       "layer": [
         {
-          "mark": {"type": "circle"},
+          "mark": {"type": "circle", "tooltip": {"content": "data"}},
           "encoding": {
             "size": {
               "field": "n",
