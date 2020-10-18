@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "New York City Citibike Stations By Useage",
+  "projection": {"type": "albersUsa"},
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/Map-files/manhattan_cut.json", "format": {"type": "topojson", "feature": "manhattan"}
+      },
+      "mark": {"type": "geoshape", "fill":"white", "stroke": "grey"}
+
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv", "format": {"type": "csv"}
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"}
+      },
+      "layer": [
+        {
+          "mark": {"type": "circle", "tooltip": {"content": "data"}},
+          "encoding": {
+            "size": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {"type": "threshold", "domain": [1500, 3000]}
+            },
+            "color": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": { "type": "threshold", "domain": [1500, 3000],"scheme": "viridis"}
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
