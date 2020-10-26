@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 600,
+  "width": 900,
   "height": 700,
   "title": "New York City Citibike Stations By Usage",
-  "projection": {"type": "albersUsa"},
+  "projection": {"type": "conicEqualArea", "rotate": [60,-42,-15]},
   "layer": [
     {
       "data": {
