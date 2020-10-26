@@ -49,7 +49,7 @@
                 "range":["#8dc787","#a1d6d4","#7986ab"] 
               },
               "legend": {"title": "Usage"}
-            },"opacity":{"value":0.9}
+            },"opacity":{"value":0.8}
           }
         }
       ]
