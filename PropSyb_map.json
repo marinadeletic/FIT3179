@@ -46,7 +46,7 @@
               "scale": {
                 "type": "threshold",
                 "domain": [1500, 3000],
-                "range":["#9ed798","#76b0ae","#7986ab"]
+                "range":["#8dc787","#a1d6d4","#7986ab"] 
               },
               "legend": {"title": "Usage"}
             },"opacity":{"value":0.9}
