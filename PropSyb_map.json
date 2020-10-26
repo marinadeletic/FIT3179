@@ -2,8 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 900,
   "height": 700,
-  "title": "New York City Citibike Stations By Usage - July 2019",
+  "title": {"text":"New York City Citibike Station Usage - July 2019","fontSize": 20},
   "projection": {"type": "conicEqualArea", "rotate": [60,-42,-15]},
+ 
   "layer": [
     {
       "data": {
@@ -48,12 +49,18 @@
                 "domain": [1500, 3000],
                 "range":["#8dc787","#a1d6d4","#7986ab"] 
               },
-              "legend": {"title": "Usage"}
+              "legend": {"title": "Usage", "orient": "top-left",
+              "titleFontSize": 14,"titleFontWeight": "bold","titleFontStyle":"italic",
+              "labelFontSize":12}
             },"opacity":{"value":0.8}
           }
         }
       ]
     }
   ],
-"config": {}
+"config": {
+  "view": {
+     "stroke": "transparent"
+  }
+}
 }
