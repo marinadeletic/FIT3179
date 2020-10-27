@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 900,
-  "height": 700,
+  "width": 700,
+  "height": 600,
   "title": {
-    "text": "New York City Citibike Popular Routes - July 2019",
+    "text": "Popular Routes",
     "fontSize": 20
   },
   "params": [
