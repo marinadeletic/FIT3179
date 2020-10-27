@@ -2,79 +2,105 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 900,
   "height": 700,
-  "title": {"text":"New York City Citibike Station Usage - July 2019","fontSize": 20},
-  "projection": {"type": "conicEqualArea", "rotate": [60,-42,-15]},
- 
+  "title": {
+    "text": "New York City Citibike Popular Routes - July 2019",
+    "fontSize": 20
+  },
+  "params": [
+    {
+      "name": "nabove",
+      "value": 60,
+      "bind": {
+        "input": "range",
+        "min": 10,
+        "max": 200,
+        "step": 10,
+        "name": "Minumum number times traveled"
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/Map-files/manhattan_cut.json",
         "format": {"type": "topojson", "feature": "manhattan"}
       },
-      "mark": {"type": "geoshape", "fill": "white", "stroke": "grey"}
+      "mark": {"type": "geoshape", "fill": "white", "stroke": "grey"},
+      "projection": {"type": "conicEqualArea", "rotate": [60, -42, -15]}
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/Map-files/mroad_geo_cut.json"
       },
-      "mark": {"type": "geoshape", "fill": "white", "stroke": "lightgrey"}
+      "mark": {"type": "geoshape", "fill": "white", "stroke": "lightgrey"},
+      "projection": {"type": "conicEqualArea", "rotate": [60, -42, -15]}
     },
     {
-    "data": {
+      "data": {
         "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv",
         "format": {"type": "csv"}
       },
-      "mark":"circle",
+      "mark": "circle",
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
-        "color":{"value":"grey"}
-        }
+        "color": {"value": "grey"}
       },
+      "projection": {"type": "conicEqualArea", "rotate": [60, -42, -15]}
+    },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/flow_10.csv",
         "format": {"type": "csv"}
       },
-      "mark":"rule",
+      "transform": [{"filter": "datum.n > nabove"}],
+      "mark": "rule",
       "encoding": {
         "longitude": {"field": "start_longitude", "type": "quantitative"},
         "latitude": {"field": "start_latitude", "type": "quantitative"},
         "longitude2": {"field": "end_longitude"},
         "latitude2": {"field": "end_latitude"},
-      "opacity":{"field": "n",
-              "type": "quantitative",
-              "scale":{
-                "range":[0,1]}
-                },
-        "size":{"field": "n",
-              "type": "quantitative",
-              "scale":{
-                "range":[1,8]}},
-        "color":{"field": "n",
-              "type": "quantitative",
-              "scale":{"scheme": "teals"}}}
+        "opacity": {
+          "field": "n",
+          "type": "quantitative",
+          "scale": {"range": [0, 1]}
+        },
+        "size": {
+          "field": "n",
+          "type": "quantitative",
+          "scale": {"range": [1, 8]}
+        },
+        "color": {
+          "field": "n",
+          "type": "quantitative",
+          "scale": {"scheme": "teals"},
+          "legend": {
+            "symbolSize": 20000,
+            "title": "Number of times traveled",
+            "orient": "top-left",
+            "titleFontSize": 14,
+            "titleFontWeight": "bold",
+            "titleFontStyle": "italic",
+            "labelFontSize": 12
+          }
+        }
+      },
+      "projection": {"type": "conicEqualArea", "rotate": [60, -42, -15]}
     },
     {
-    "data": {
+      "data": {
         "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv",
         "format": {"type": "csv"}
       },
-      "mark":"circle",
+      "mark": "circle",
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
-        "color":{"value":"transparent"},
-        "tooltip": [
-          {"field": "name", "type": "nominal", "title": "Station"}
-        ]
-        }
-      }
-      ],      
-"config": {
-  "view": {
-     "stroke": "transparent"
+        "color": {"value": "transparent"},
+        "tooltip": [{"field": "name", "type": "nominal", "title": "Station"}]
+      },
+      "projection": {"type": "conicEqualArea", "rotate": [60, -42, -15]}
     }
-  }
+  ],
+  "config": {"view": {"stroke": "transparent"}}
 }
-
