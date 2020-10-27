@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 700,
+  "title": {"text":"New York City Citibike Station Usage - July 2019","fontSize": 20},
+  "projection": {"type": "albersUsa"},
+ 
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/Map-files/manhattan_cut.json",
+        "format": {"type": "topojson", "feature": "manhattan"}
+      },
+      "mark": {"type": "geoshape", "fill": "white", "stroke": "grey"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/Map-files/mroad_geo_cut.json"
+      },
+      "mark": {"type": "geoshape", "fill": "white", "stroke": "lightgrey"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/stations.csv",
+        "format": {"type": "csv"}
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "tooltip": [
+          {"field": "name", "type": "nominal", "title": "Station"},
+          {"field": "n", "type": "quantitative", "title": "Number of uses"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "circle"},
+          "encoding": {
+            "size": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {"type": "threshold", "domain": [1500, 3000]}
+            },
+            "color": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [1500, 3000],
+                "range":["#8dc787","#a1d6d4","#7986ab"] 
+              },
+              "legend": {"title": "Usage", "orient": "top-left",
+              "titleFontSize": 14,"titleFontWeight": "bold","titleFontStyle":"italic",
+              "labelFontSize":12}
+            },"opacity":{"value":0.8}
+          }
+        }
+      ]
+    }
+  ],
+"config": {
+  "view": {
+     "stroke": "transparent"
+  }
+}
+}
