@@ -6,14 +6,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  
 </head>
 <body>
 
-<div id="vis"></div>
+<h1>New York CitiBike - June 2019</h1>
+
+<h2>Stations by Usage</h2>
+<div id="propSym_map"></div>
+
+<h2>Popular Routes</h2>
+<div id="flow_map"></div>
 
 <script type="text/javascript">
-  var spec = "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/PropSyb_map.json";
-  vegaEmbed('#vis', spec).then(function(result) {
+  
+  var vis1 = "PropSyb_map.json";
+  
+  vegaEmbed('#propSym_map', vis1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var vis2 = "flow_map.json";
+  
+  vegaEmbed('#flow_map', vis2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
