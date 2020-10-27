@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
-  "height": 700,
-  "title": {"text":"New York City Citibike Station Usage - July 2019","fontSize": 20},
+  "width": 400,
+  "height": 600,
+  "title": {"text":"Station Usage","fontSize": 20},
   "projection": {"type": "albersUsa"},
  
   "layer": [
