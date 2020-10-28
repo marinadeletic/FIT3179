@@ -11,13 +11,18 @@
       "encoding": {
         "x": {
           "field": "weekday",
+          "type": "ordinal",
           "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
           },
         "y": {
           "aggregate": "average", 
           "field": "n"},
         "size":{"value":5},
-        "color":{"field":"weekday"}}
+        "color":{
+          "field":"weekday", 
+          "scale": {"scheme": "set1"},
+          "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}
+        }
       },
           {
       "mark": "circle",
@@ -33,7 +38,7 @@
         "color":{"field":"weekday"},
         "tooltip":[
           {"title":"Day","field":"weekday"},
-          {"title":"Number","field":"n","aggregate":"average", "format":".2d"}]}
+          {"title":"Average Useage","field":"n","aggregate":"average", "format":".2d"}]}
       }]
     },
     {
@@ -51,9 +56,16 @@
           },
         "y": {
           "aggregate": "average", 
-          "field": "n"},
+          "field": "n",
+          "title": "Average Usage"},
         "size":{"value":2},
-        "color":{"field":"weekday"}}
+        "color":{
+          "field":"weekday", 
+          "type": "ordinal",
+          "title":"Day",
+          "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+          }
+        }
       },
       {
         "data":{ "values":{"morning":8}},
