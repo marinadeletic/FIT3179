@@ -64,11 +64,19 @@
 
     <!-- pure grid group -->
     <div class="pure-g">
-        <div class="pure-u-4-4">
+        <div class="pure-u-3-5">
           <div id="flowmap" class="vis-container"></div>
         </div>
-        <div class="pure-u-1-4">
+        <div class="pure-u-2-5">
           <div id="propSym_map" class="vis-container"></div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+   
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div id="time" class="vis-container"></div>
         </div>
     </div>
     <!-- end pure grid group -->
@@ -85,12 +93,17 @@
 <script type="text/javascript">
   var specVis1 = "js/flow_map.json";
   var specVis2= "js/PropSyb_map_vert.json";
+  var specVis3= "js/time.json";
 
   vegaEmbed('#flowmap', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
    vegaEmbed('#propSym_map', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+    
+    vegaEmbed('#time', specVis3, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
