@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": {"text":"Usage By Time","fontSize": 20},
-
+  "width": 900,
+  "height": 600,
   "hconcat":[{
     "data": {
       "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/time_day.csv"},
