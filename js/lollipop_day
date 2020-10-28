@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": {"text":"Usage By Time","fontSize": 20},
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/time_day.csv"},
+  "layer":[
+    {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "weekday",
+         "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+        },
+      "y": {
+        "aggregate": "average", 
+        "field": "n"},
+      "size":{"value":5}}
+    },
+        {
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "weekday",
+         "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]},
+      "y": {
+        "aggregate": "average", 
+        "field": "n",
+        "title":"Average Usage"},
+      "size":{"value":200},
+      "tooltip":[
+        {"title":"Day","field":"weekday"},
+        {"title":"Number","field":"n","aggregate":"average", "format":".2d"}]}
+    }]
+}
