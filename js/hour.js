@@ -1,3 +1,9 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": {"text":"Usage By Time","fontSize": 20},
+
   "data": {
     "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/time_day.csv"},
   "layer":[
@@ -38,3 +44,4 @@
     }
     ],
     "resolve": {"axis": {"x":"shared"}}
+}
