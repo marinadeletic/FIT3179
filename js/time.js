@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": {"text":"Usage By Time","fontSize": 20},
-  "width": 900,
-  "height": 600,
+
   "hconcat":[{
     "data": {
       "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/time_day.csv"},
@@ -23,7 +22,9 @@
           "field":"weekday", 
           "scale": {"scheme": "set1"},
           "sort":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}
-        }
+        },
+        "width":400,
+        "height":400
       },
           {
       "mark": "circle",
@@ -45,6 +46,8 @@
     {
       "data": {
       "url": "https://raw.githubusercontent.com/marinadeletic/FIT3179/main/time_day.csv"},
+      "width":400,
+      "height":400,
     "layer":[
       {
       "mark": {"type":"line","interpolate":"basis"},
